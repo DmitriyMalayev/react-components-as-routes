@@ -51,7 +51,7 @@ a `Home` component, and then rendering that component in the DOM.
 // ./src/index.js
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'; // Library that includes routing components 
 
 const Home = () => {
   return (
@@ -79,6 +79,9 @@ To start implementing routes, we first need to import `BrowserRouter` and `Route
 `react-router-dom`. `BrowserRouter` is commonly renamed as `Router`, so we'll follow this
 convention, as well. We can create an _alias_ with the syntax `BrowserRouter as Router`. 
 So every time we refer to `Router` in this file, we are really just refering to `BrowserRouter`.
+<!-- Route is the conditionally shown component based on matching a path to a URL. -->
+<!-- `BrowserRouter vs. HashRouter ??`  -->
+
 
 ```javascript
 // .src/index.js
@@ -97,9 +100,10 @@ const Home = () => {
 };
 
 // Step 2. Changed to have router coordinate what is displayed
+// Note, We are not restricted to matching one route. If we have a router and there are multiple routes that match the path that our URL bar currently displays then multiple components that are matched with those routes can be displayed simultaneously.  
 ReactDOM.render((
   <Router>
-    <Route path="/" component={Home} />
+    <Route path="/" component={Home} />     
   </Router>),
   document.getElementById('root')
 );
@@ -185,8 +189,6 @@ ReactDOM.render((
 
 Reload your browser and look at our beautiful routes...oops! Error:  
 
-<span style='color:red'>A &lt;Router&gt; may have only one child element</span>
-
 If you open up your browser dev tools console you should be seeing the same
 error. What does this mean? Well, as you know in React, a component must return
 one child/html node (which may wrap many others). We just gave `Router` three
@@ -249,7 +251,8 @@ the `component` prop are merely functions defined above that return JSX. If we
 preferred, we could instead use the `render` prop and write inline code directly
 in our `Route`:
 
-```javascript
+```javascript 
+
 <Route path="/" render={() => <h1>Home!</h1>} />
 ```
 
@@ -264,7 +267,7 @@ familiarize yourself with the [__Route__ documentation][route_docs].
 Now that we have the tools to enable routing, let's look into how we can enable
 users to trigger our `Route`s without requiring a manual change of the address
 bar.
-
+ 
 ### NavLinks
 
 What good are routes, if users don't know how to find them or what they are?
@@ -273,7 +276,7 @@ The React Router API provides two components that enable us to trigger our
 routing: `Link` and `NavLink`. They both have the same base level functionality:
 they update the browser URL and render the `Route` component. `NavLink` acts 
 as a superset of `Link`, adding styling attributes to a rendered element when 
-it matches the current URL.
+it matches the current URL. 
 
 Let's work on adding in the `NavLink` component to our application:
 

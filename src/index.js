@@ -1,15 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Home from './home'
+import About from "./about"
+import Login from "./login"
+import Navbar from './navbar'
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom"
 
-const Home = () => {
-  return (
-    <div>
-      <h1>Home!</h1>
-    </div>
-  );
-};
 
+
+
+
+ 
 ReactDOM.render(
-  <Home />,
-  document.getElementById('root')
+  <Router>
+    <div>
+      <Navbar/>  
+      <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/login" component={Login}/>
+    </div>
+  </Router>,
+  document.getElementById("root")
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
