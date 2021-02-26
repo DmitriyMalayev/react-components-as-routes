@@ -4,13 +4,8 @@ import Home from './home'
 import About from "./about"
 import Login from "./login"
 import Navbar from './navbar'
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom"
+import { BrowserRouter as Router, Route} from "react-router-dom"
 
-
-
-
-
- 
 ReactDOM.render(
   <Router>
     <div>

@@ -1,0 +1,5 @@
+{
+    "emmet.showSuggestionsAsSnippets": true,
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "tabnine.experimentalAutoImports": false
+}
